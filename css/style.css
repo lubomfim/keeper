@@ -1,0 +1,162 @@
+/*
+RESETS
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*
+PRE-SETS AND VARIABLE 
+*/
+
+img {
+  max-width: 100%;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --color-salmao: #ff9696;
+  --color-black: #000;
+  --color-white: #fff;
+
+  --color-green: #d2ff99;
+  --color-light-black: rgba(0, 0, 0, 0.4);
+  --color-grey: #c4c4c4;
+
+  --font-big: 2.4rem;
+  --font-small: 1.8rem;
+  --font-DM-Sans: "DM Sans", sans-serif;
+
+  --border-radius-low: 10px;
+  --border-radius-high: 15px;
+  --border-radius-bigger: 20px;
+}
+
+body {
+  font-size: var(--font-small);
+  font-family: var(--font-DM-Sans);
+  background-color: var(--color-green);
+  padding: 10px;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+::placeholder {
+  color: var(--color-light-black);
+  font-style: italic;
+}
+
+input {
+  font-size: var(--font-small);
+  font-family: var(--font-DM-Sans);
+}
+
+button {
+  cursor: pointer;
+}
+/*
+MAIN
+*/
+
+.main {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-bigger);
+  height: 100%;
+}
+
+/*
+HERO
+*/
+
+.hero {
+  padding-top: 131px;
+}
+
+.hero__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__logo {
+  margin-bottom: 165px;
+}
+
+/*
+FORM
+*/
+
+.hero__form {
+  width: 100%;
+  max-width: 620px;
+  position: relative;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.entrada__task {
+  width: 100%;
+  padding: 18px;
+  margin-bottom: 40px;
+
+  border: 1px solid black;
+  border-radius: var(--border-radius-high);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.6);
+}
+
+.details__container {
+  position: absolute;
+  right: -65px;
+  top: 8px;
+}
+
+.details__btn {
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: var(--font-big);
+
+  background-color: var(--color-white);
+  border: 1px solid black;
+  color: var(--color-salmao);
+
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-weight: 700;
+}
+
+.details__pop {
+  display: none;
+}
+
+.keep-it__btn {
+  padding: 10px 95px;
+  background: var(--color-black);
+  color: var(--color-salmao);
+  font-weight: 700;
+
+  font-size: var(--font-big);
+  border-radius: var(--border-radius-high);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
