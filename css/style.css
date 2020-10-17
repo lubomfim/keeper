@@ -64,6 +64,7 @@ input {
 
 button {
   cursor: pointer;
+  font-family: var(--font-DM-Sans);
 }
 /*
 MAIN
@@ -73,6 +74,7 @@ MAIN
   background-color: var(--color-white);
   border-radius: var(--border-radius-bigger);
   height: 100%;
+  position: relative;
 }
 
 /*
@@ -90,7 +92,7 @@ HERO
 }
 
 .hero__logo {
-  margin-bottom: 165px;
+  margin-bottom: 140px;
 }
 
 /*
@@ -155,8 +157,63 @@ FORM
 
 footer {
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   left: 0;
   right: 0;
   text-align: center;
+}
+
+/*
+MODAL LOAD 
+*/
+
+.modal__load-container {
+  height: 100vh;
+  width: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2);
+
+  position: fixed;
+  z-index: 999;
+  top: 0;
+}
+
+.modal__load {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: var(--color-green);
+  border-radius: var(--border-radius-high);
+
+  max-width: 500px;
+  text-align: center;
+  padding: 37px;
+}
+
+.modal__load-text {
+  font-size: var(--font-big);
+}
+span {
+  display: block;
+
+  font-size: var(--font-small);
+
+  padding: 40px 0px;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.modal__load-btn {
+  padding: 11px 68px;
+  border-radius: var(--border-radius-low);
+
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-size: var(--font-small);
 }
