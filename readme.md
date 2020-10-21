@@ -20,11 +20,11 @@ Em construção
 
 - HTML
 - CSS
-- Javascript
+- Javascript (JQuery)
 
 ## Etapas do Desenvolvimento
 
 - [x] Design
-- [ ] HTML
+- [x] HTML
 - [ ] CSS
-- [ ] Interação com JS
+- [ ] Interação com JS -
