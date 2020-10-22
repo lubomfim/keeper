@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="icon" href="./assets/img/melancia.png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
 </head>
 <body>
   <main class="main">
@@ -28,7 +29,7 @@
 
         <div class="hero__form">
           <form class="form">
-            <input type="text" name="entrada" class="entrada__task" placeholder="e.g. Watch TV with my friends at 09a.m">
+            <input type="text" name="entrada" class="entrada__task" placeholder="e.g. Watch TV with my friends at 09a.m" maxlength="30">
             <div class="details__container">
               <button class="details__btn" >+</button>
               <p class="details__pop">Click for add details</p>
@@ -41,7 +42,7 @@
         <div class="modal__details modal__style-content">
           <form action="#" class="modal__details-form">
             <label for="todo">What are you going to do?</label>
-            <input type="text" name="todo" id="todo" placeholder="e.g. play video game">
+            <input type="text" name="todo" id="todo" placeholder="e.g. play video game" max-length="20">
             <label for="todo">For how long? When?</label>
             <input type="text" name="time" id="time" placeholder="e.g. all night long!">
             <label for="todo">With who?</label>
@@ -50,19 +51,34 @@
           <button class="modal__details-btn modal__style-btn">Keep it!</button>
         </div>
       </div>
+
+     
     </section>
 
     <section class="tasks">
-      <div class="container">
 
+      <!-- Slider main container -->
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+           <!--  <div class="swiper-slide">
+              <div class="swiper__mini-box">
+                <p class="mini-box__text">Recebendo amigos em casaRecebendo amigos em casaRecebendo amigos </p>      
+              </div>
+              <button class="mini-box__button">Details</button>   
+            </div> -->
+
+        </div>
       </div>
-    </section>
+  </section>
 
   </main>
   <script
   src="https://code.jquery.com/jquery-3.5.1.js"
   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
   crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
   <script src="./script/main.js"></script>
 </body>
 </html>
