@@ -26,5 +26,5 @@ Em construção
 
 - [x] Design
 - [x] HTML
-- [ ] CSS
-- [ ] Interação com JS -
+- [x] CSS
+- [x] Interação com JS - (Treinando com Jquery)
