@@ -1,84 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Keeper</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keeper</title>
 
-  <!-- 
+    <!-- 
     Links 
   -->
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="icon" href="./assets/img/melancia.png">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-</head>
-<body>
-  <main class="main">
-    <section class="hero">
-      <div class="modal__load-container modal__style-bg">
-        <div class="modal__load modal__style-content">
-          <p class="modal__load-text">Hey, i’m Keeper! I’ll store all yours daily tasks.<span>Ps: I swear i'll keep your secrets.</span></p>
-          <button class="modal__load-btn modal__style-btn">Let's go!</button>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="./assets/img/melancia.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+  </head>
+  <body>
+    <main class="main">
+      <section class="hero">
+        <div class="modal__load-container modal__style-bg">
+          <div class="modal__load modal__style-content">
+            <p class="modal__load-text">
+              Hey, i’m Keeper! I’ll store all yours daily tasks.<span
+                >Ps: I swear i'll keep your secrets.</span
+              >
+            </p>
+            <button class="modal__load-btn modal__style-btn">Let's go!</button>
+          </div>
         </div>
-      </div>
-      <div class="hero__wrapper">
-        <div class="hero__logo">
-          <img src="./assets/img/logo.png" alt="Keeper">
-        </div>
+        <div class="hero__wrapper">
+          <div class="hero__logo">
+            <img src="./assets/img/logo.png" alt="Keeper" />
+          </div>
 
-        <div class="hero__form">
-          <form class="form">
-            <input type="text" name="entrada" class="entrada__task" placeholder="e.g. Watch TV with my friends at 09a.m" maxlength="30">
-            <div class="details__container">
-              <button class="details__btn" >+</button>
-              <p class="details__pop">Click for add details</p>
-            </div>
-            <button class="keep-it__btn">Keep it!</button>
-          </form>
-        </div>
-      </div>
-      <div class="modal__details-container modal__style-bg">
-        <div class="modal__details modal__style-content">
-          <form action="#" class="modal__details-form">
-            <label for="todo">What are you going to do?</label>
-            <input type="text" name="todo" id="todo" placeholder="e.g. play video game" max-length="20">
-            <label for="todo">For how long? When?</label>
-            <input type="text" name="time" id="time" placeholder="e.g. all night long!">
-            <label for="todo">With who?</label>
-            <input type="text" name="friend" id="friend" placeholder="e.g. my mom">
-          </form>
-          <button class="modal__details-btn modal__style-btn">Keep it!</button>
-        </div>
-      </div>
-
-     
-    </section>
-
-    <section class="tasks">
-
-      <!-- Slider main container -->
-      <div class="swiper-container">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-           <!--  <div class="swiper-slide">
-              <div class="swiper__mini-box">
-                <p class="mini-box__text">Recebendo amigos em casaRecebendo amigos em casaRecebendo amigos </p>      
+          <div class="hero__form">
+            <form class="form">
+              <input
+                type="text"
+                name="entrada"
+                class="entrada__task"
+                placeholder="e.g. Watch TV with my friends at 09a.m"
+                maxlength="30"
+              />
+              <div class="details__container">
+                <button class="details__btn">+</button>
+                <p class="details__pop">Click for add details</p>
               </div>
-              <button class="mini-box__button">Details</button>   
-            </div> -->
-
+              <button class="keep-it__btn">Keep it!</button>
+            </form>
+          </div>
         </div>
-      </div>
-  </section>
+        <div class="modal__details-container modal__style-bg">
+          <div class="modal__details modal__style-content">
+            <form action="#" class="modal__details-form">
+              <label for="todo">What are you going to do?</label>
+              <input
+                type="text"
+                name="todo"
+                id="todo"
+                placeholder="e.g. play video game"
+                max-length="20"
+              />
+              <label for="todo">For how long? When?</label>
+              <input
+                type="text"
+                name="time"
+                id="time"
+                placeholder="e.g. all night long!"
+              />
+              <label for="todo">With who?</label>
+              <input
+                type="text"
+                name="friend"
+                id="friend"
+                placeholder="e.g. my mom"
+              />
+            </form>
+            <button class="modal__details-btn modal__style-btn">
+              Keep it!
+            </button>
+            <div class="close-btn">X</div>
+          </div>
+        </div>
+      </section>
 
-  </main>
-  <script
-  src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-  <script src="./script/main.js"></script>
-</body>
+      <section class="tasks">
+        <!-- Slider main container -->
+        <div class="swiper-container">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper"></div>
+        </div>
+
+        <div class="modal__details-open-container modal__style-bg">
+          <div class="modal__details-open modal__style-content">
+            <h3 class="detail__title">Your keepi is:</h3>
+            <div class="task-name"></div>
+            <div class="task-data"></div>
+            <div class="task-friend"></div>
+            <button class="modal__details-open-btn modal__style-btn">
+              Excluir
+            </button>
+            <div class="close-btn">X</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="limpar-btn">Limpar</div>
+    </main>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="./script/main.js"></script>
+  </body>
 </html>
