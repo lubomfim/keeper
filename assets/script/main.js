@@ -1,81 +1,58 @@
-$('button').click(function(e){
-  e.preventDefault();
-})
+// MODAL  ON LOAD 
+const modalLoadButton = document.querySelector('.modal__load-btn')
+const modalLoadContainer = document.querySelector('.modal__load-container')
 
-$(function() {
-  // MODAL  ON LOAD 
-  const modalLoadButton = $('.modal__load-btn')
-  const modalLoadContainer = $('.modal__load-container')
-
-  modalLoadContainer.show()
-  modalLoadButton.click(() => modalLoadContainer.remove())
-
-  // DETAILS BUTTON 
-  const detailsButton = $('.details__btn')
-  const detailsPop = $('.details__pop')
-  const modalDetails = $('.modal__details-container')
-
-  detailsButton.hover(function () {
-    if(screen.width > 915) {
-      $(detailsPop).fadeIn('fast')
-    }
-  }, function() {
-    $(detailsPop).fadeOut('slow')
-  })
-
-  // --- OPEN MODAL IN DETAILS BUTTON CLICK
-  detailsButton.click(function() {
-    modalDetails.show()
-  })
+window.onload = () => modalLoadContainer.style.display = "block"
+modalLoadContainer.onclick = () => modalLoadContainer.remove()
 
 // SWIPER
 
-  let mySwiper = new Swiper('.swiper-container', {
-  // Optional parameters
-  freeMode: true, 
-  breakpoints: {
+let mySwiper = new Swiper('.swiper-container', {
+// Optional parameters
+freeMode: true, 
+observer: true,
+observeParents: true,
+observeSlideChildren: true,
+breakpoints: {
+  915: {
+    spaceBetween: 20,
+    slidesPerView: 5.4,
+  },
+  718: {
+    spaceBetween: 15,
+    slidesPerView: 4,
+  },
 
-    915: {
-      spaceBetween: 20,
-      slidesPerView: 5.4,
-    },
-    718: {
-      spaceBetween: 15,
-      slidesPerView: 4,
-    },
-
-    425: {
-      spaceBetween: 10,
-      slidesPerView: 3.2,
-    },
-    320: {
-      spaceBetween: 7,
-      slidesPerView: 1.2,
-    }
-
+  425: {
+    spaceBetween: 10,
+    slidesPerView: 3.2,
+  },
+  320: {
+    spaceBetween: 7,
+    slidesPerView: 1.2,
   }
+}
 })
 
 // INTERATOR LOCAL STORAGE
 
-
 function controleLocalStorage(objeto) {
-  let resgateStorage = localStorage.getItem('cofreTarefas')
- 
-  if (resgateStorage && resgateStorage.length >= 0 ) {
-    let tarefasExistentes = localStorage.getItem('cofreTarefas')
-    let tarefasConvertidas = JSON.parse(tarefasExistentes)
-    
-    let tarefas = [...tarefasConvertidas, objeto];
-    localStorage.setItem('cofreTarefas', JSON.stringify(tarefas))
+let resgateStorage = localStorage.getItem('cofreTarefas')
 
-  } else {
-    let tarefas = [];
-    tarefas.push(objeto)
-    localStorage.setItem('cofreTarefas', JSON.stringify(tarefas))
-  }
+if (resgateStorage && resgateStorage.length >= 0 ) {
+  let tarefasExistentes = localStorage.getItem('cofreTarefas')
+  let tarefasConvertidas = JSON.parse(tarefasExistentes)
   
-  CriadorMiniBox(objeto)
+  let tarefas = [...tarefasConvertidas, objeto];
+  localStorage.setItem('cofreTarefas', JSON.stringify(tarefas))
+
+} else {
+  let tarefas = [];
+  tarefas.push(objeto)
+  localStorage.setItem('cofreTarefas', JSON.stringify(tarefas))
+}
+
+CriadorMiniBox(objeto)
 }
 
 if (localStorage.cofreTarefas && (localStorage.cofreTarefas).length > 0) {
@@ -84,129 +61,142 @@ if (localStorage.cofreTarefas && (localStorage.cofreTarefas).length > 0) {
 }
 
 
-// CLICK EVENT ONLY NAME TASK
+// Open modal for add tasks
 
-$('.keep-it__btn').click(function() {
-  let entrada = $('.entrada__task').val()
-  if (entrada.length === 0) {
-    alert('Insira algo')
+const modalDetails = document.querySelector('.modal__details-container')
+const keepItBtn = document.querySelector('.keep-it__btn')
+
+keepItBtn.onclick = function(e) {
+  e.preventDefault();
+  let entrada = document.querySelector('.entrada__task')
+
+  if ((entrada.value).length <= 0) {
+    swal("Digite algo!", "Para conseguirmos seguir, é necessário que escreva algo.", "error");
   } else {
-    CriadorObjeto(entrada)  
+    let entradaModal = document.querySelector('#todo')
+    entradaModal.value = entrada.value
+    modalDetails.style.display = "block"
   }
-  $('.entrada__task').val("")
-  $('#todo').val("")
-  $('#time').val("")
-  $('#friend').val("")
-})
+  entrada.value = ""
+}
 
+// Add task
 
-// CLICK EVENT DETAILS TASK
+const modalAddButton = document.querySelector('.modal__details-btn')
 
-$('.modal__details-btn').click(function() {
-  let task = $('#todo').val()
-  let time = $('#time').val()
-  let friend = $('#friend').val()
+modalAddButton.onclick = function(e) {
+  e.preventDefault();
+  let taskNome = document.querySelector('#todo')
+  let taskData = document.querySelector('#time')
+  let taskFriend = document.querySelector('#friend')
 
-  if(task.length === 0) {
-    alert('Digite algo')
+  if((taskNome.value).length === 0) {
+    swal("Digite algo!", "Para conseguirmos seguir, é necessário adicionar uma task.", "error");
   } else {
-    CriadorObjeto(task, time, friend)
-    $('.modal__details-container').hide()
-
+    let task = new CriadorObjeto(taskNome.value, taskData.value, taskFriend.value)
+    controleLocalStorage(task)
+    modalDetails.style.display = "none"
   }
-
-  $('#todo').val("")
-  $('#time').val("")
-  $('#friend').val("")
-})
+  taskNome.value = ""
+  taskData.value = ""
+  taskFriend.value = ""
+}
 
 // OBJECT CONSTRUCTOR
 
-function CriadorObjeto(task, data, friend) {
-  let infos = {
-    id: Date.now(),
-    task: task,
-    data: data,
-    friend: friend,
-    hide: false,
+class CriadorObjeto {
+  constructor(taskName, taskData, taskFriend) {
+    this.id = Date.now(),
+    this.task = taskName,
+    this.data = taskData,
+    this.friend = taskFriend,
+    this.hide = false
   }
-  controleLocalStorage(infos)
 }
-
-
 
 // SWIPER ELEMENTS CONSTRUCTOR
 
 function CriadorMiniBox(entrada) {
   if (entrada.hide === false) {
-    mySwiper.appendSlide($(`<div class="swiper-slide" id="${entrada.id}">`).append($('<div class="swiper__mini-box">').append(`<p class="mini-box__text">${entrada.task}</p>`)).append('<button class="mini-box__button">Click for details</button>'))
+    mySwiper.appendSlide(`<div class="swiper-slide" id="${entrada.id}"> <div class="swiper__mini-box"> <p class="mini-box__text">${entrada.task}</p> <button class="mini-box__button">Click for details</button> </div> </div>`)
 
-  let elementos = $('.swiper-slide')
-
-  elementos.each((index, elemento) => {
-    elemento.addEventListener('click', detailsTask)
-  }) 
-
+    const elementos = document.querySelectorAll('.swiper-slide')
+    elementos.forEach(elemento => elemento.addEventListener('click', detailsTask)
+    ) 
   }
-
 }
 
 function CriadorMiniBoxStorage(entrada) {
-  $(entrada).each((index, elemento) => {
-    CriadorMiniBox(elemento)
-  })
+  entrada.forEach(elemento => CriadorMiniBox(elemento))
 }
-
 
 /*
 DETAILS TASK MODAL
 */
 
+const modalVisualizadorTask = document.querySelector('.modal__details-open-container')
+
 function detailsTask(e) {
-  let tarefasExistentesDetail = localStorage.getItem('cofreTarefas')
-  let tarefasConvertidasDetail = JSON.parse(tarefasExistentesDetail)
+let acessandoCofreTasks = localStorage.getItem('cofreTarefas')
+let convertendoTasks = JSON.parse(acessandoCofreTasks)
+let elementoPai = e.target.closest('div .swiper-slide')
+let idSwiperElemento = elementoPai.id
+idSwiperElemento = Number(idSwiperElemento)
 
-  for(let i = 0; i < tarefasConvertidasDetail.length; i++) {
-    let elementoPai = e.target.closest('div .swiper-slide')
-    let idElemento = elementoPai.id
-    idElemento = Number(idElemento)
+for(let i = 0; i < convertendoTasks.length; i++) {
+ if (convertendoTasks[i].id === idSwiperElemento) {
+    let task = convertendoTasks[i]
+   
+    const showTaskName = document.querySelector('.task-name')
+    const showTaskData = document.querySelector('.task-data')
+    const showTaskFriend = document.querySelector('.task-friend')
 
-    if (tarefasConvertidasDetail[i].id === idElemento) {
-      let task = tarefasConvertidasDetail[i]
-      console.log(task)
+    showTaskName.innerText = task.task
+    showTaskData.innerText = task.data
+    showTaskFriend.innerText = task.friend
 
-      $('.modal__details-open-container').show()
-      $('.task-name').text(task.task)
-      $('.task-data').text(task.data)
-      $('.task-friend').text(task.friend)
+    modalVisualizadorTask.style.display = "block"
 
-      $('.modal__details-open-btn').click(function() {
-        $('.modal__details-open-container').hide()
-        excluirTask(tarefasConvertidasDetail, task, elementoPai)
-        $('.task-data').text("")
-        $('.task-friend').text("")
-      })
-    }
-    
+    const excluirBtn = document.querySelector('.modal__details-excluir-btn')
+    excluirBtn.addEventListener('click', function() {
+      modalVisualizadorTask.style.display = "none";
+
+      excluirTask(convertendoTasks, task, elementoPai)
+      showTaskData.value = ""
+      showTaskFriend.value = ""
+    })
   }
+  
 }
+}
+
+// Botao excluir - modal
 
 function excluirTask(storage, task, e) {
   task.hide = true;
-  e.remove()
+  e.style.display = "none"
   localStorage.setItem('cofreTarefas', JSON.stringify(storage))
 }
 
-$('.close-btn').click(function() {
-  $('.modal__style-bg').hide()
-  $('.task-data').text("")
-  $('.task-friend').text("")
+// Botao fechar - modal
+
+let modalClose = document.querySelector('.close-btn')
+
+modalClose.addEventListener('click', function(e) {
+  console.log(e)
+  const showTaskFriend = document.querySelector('.task-friend')
+  const showTaskData = document.querySelector('.task-data')
+
+  modalVisualizadorTask.style.display = "none"
+  showTaskData.value = ""
+  showTaskFriend.value = ""
 })
 
+// Botao limpar
 
-$('.limpar-btn').click(function() {
-  localStorage.clear('cofreTarefas')
-  window.location.reload()
-})
-})
+const limpatBtn = document.querySelector('.limpar-btn')
 
+limpatBtn.onclick = function() {
+localStorage.clear('cofreTarefas')
+window.location.reload()
+}

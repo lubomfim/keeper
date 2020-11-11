@@ -26,3 +26,9 @@ A prática na utilização de AJAX, consumo de API e local storage.
 - [x] HTML
 - [x] CSS
 - [x] Interação com JS
+- [x] Melhoria de usabilidade
+- [x] Refresh no swiper sempre que algo for adicionado ou removido
+- [x] Uso da biblioteca [SweetAlert](https://sweetalert.js.org)
+
+- [] Adicionar possibilidade de restauração de task já apaga
+- [] Remover espaços em brancos quando não tem data ou amigos no modal

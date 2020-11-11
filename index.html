@@ -23,6 +23,7 @@
           <div class="modal__load modal__style-content">
             <p class="modal__load-text">
               Hey, i’m Keeper! I’ll store all yours daily tasks.<span
+                class="modal__load-span"
                 >Ps: I swear i'll keep your secrets.</span
               >
             </p>
@@ -43,10 +44,6 @@
                 placeholder="e.g. Watch TV with my friends at 09a.m"
                 maxlength="30"
               />
-              <div class="details__container">
-                <button class="details__btn">+</button>
-                <p class="details__pop">Click for add details</p>
-              </div>
               <button class="keep-it__btn">Keep it!</button>
             </form>
           </div>
@@ -54,7 +51,9 @@
         <div class="modal__details-container modal__style-bg">
           <div class="modal__details modal__style-content">
             <form action="#" class="modal__details-form">
-              <label for="todo">What are you going to do?</label>
+              <label for="todo"
+                >What are you going to do?<span class="required">*</span></label
+              >
               <input
                 type="text"
                 name="todo"
@@ -95,10 +94,12 @@
         <div class="modal__details-open-container modal__style-bg">
           <div class="modal__details-open modal__style-content">
             <h3 class="detail__title">Your keepi is:</h3>
-            <div class="task-name"></div>
-            <div class="task-data"></div>
-            <div class="task-friend"></div>
-            <button class="modal__details-open-btn modal__style-btn">
+            <div class="modal__content">
+              <div class="task-name"></div>
+              <div class="task-data"></div>
+              <div class="task-friend"></div>
+            </div>
+            <button class="modal__details-excluir-btn modal__style-btn">
               Excluir
             </button>
             <div class="close-btn">X</div>
@@ -108,11 +109,7 @@
 
       <div class="limpar-btn">Limpar</div>
     </main>
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="./assets/script/main.js"></script>
   </body>
