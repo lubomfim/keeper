@@ -105,6 +105,9 @@ MAIN
   background-color: var(--color-white);
   border-radius: var(--border-radius-bigger);
   position: relative;
+  height: 100vh;
+  min-height: 800px;
+  margin-bottom: 15px;
 }
 
 /*
