@@ -1,30 +1,28 @@
 # Keeper
 
-Um website para adicionar suas tarefas diárias com detalhes.
+Esse aplicativo foi desenvolvido para ser um "To do list", onde o usuário poderá colocar suas tarefas e acompanhá-las pela plataforma.
 
-![Keeper Layout](./assets/design/design-desktop.png)
+## 💡 Objetivo
 
-## Objetivo
+A prática na utilização de AJAX, consumo de API e local storage.
 
-Prática no desenvolvimento de layouts complexos e completos, com uso das ferramentas básicas front-end: HTML, CSS e JS.
-
-## Design
+## 🎨 Design
 
 [Figma](https://www.figma.com/proto/snZLdVmiqA0OXaZkEMYmvz/TODO?node-id=1%3A45&viewport=-315%2C344%2C0.3497963547706604&scaling=min-zoom)
 
-## Status
+## 🖥️ Live Version
 
-Em construção
+[Keeper](https://lubomfim.github.io/keeper/)
 
-## Tecnologias
+## 🚀 Technologies
 
 - HTML
 - CSS
-- Javascript (JQuery)
+- Javascript
 
-## Etapas do Desenvolvimento
+## ✏️ Etapas do Desenvolvimento
 
 - [x] Design
 - [x] HTML
 - [x] CSS
-- [x] Interação com JS - (Treinando com Jquery)
+- [x] Interação com JS
